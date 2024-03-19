@@ -1,0 +1,652 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.FrmSOHist..Create(DashForm)
+Gui.FrmSOHist..Caption("SO History Modification [6932]")
+Gui.FrmSOHist..Size(1024,750)
+Gui.FrmSOHist..MinX(0)
+Gui.FrmSOHist..MinY(0)
+Gui.FrmSOHist..Position(0,0)
+Gui.FrmSOHist..AlwaysOnTop(False)
+Gui.FrmSOHist..FontName("Tahoma")
+Gui.FrmSOHist..FontSize(8.25)
+Gui.FrmSOHist..ControlBox(True)
+Gui.FrmSOHist..MaxButton(True)
+Gui.FrmSOHist..MinButton(True)
+Gui.FrmSOHist..MousePointer(0)
+Gui.FrmSOHist..Moveable(True)
+Gui.FrmSOHist..Sizeable(True)
+Gui.FrmSOHist..ShowInTaskBar(True)
+Gui.FrmSOHist..TitleBar(True)
+Gui.FrmSOHist..Event(UnLoad,Form_UnLoad)
+Gui.FrmSOHist..BarRefreshButton(True)
+Gui.FrmSOHist..BarExportButton(True)
+Gui.FrmSOHist..Event(ExportClick,FrmSOHist_ExportClick)
+Gui.FrmSOHist..Event(RefreshClick,FrmSOHist_RefreshClick)
+Gui.FrmSOHist.lbl1.Create(Label,"Beginning Customer",True,95,13,0,16,13,True,0,"Tahoma",8.25,,0,0)
+Gui.FrmSOHist.lbl1.BorderStyle(0)
+Gui.FrmSOHist.txt_Beg_Cust.Create(TextBox,"",True,259,20,0,115,10,True,0,"Tahoma",8.25,,1)
+Gui.FrmSOHist.lbl3.Create(Label,"Ending Customer",True,81,13,0,478,13,True,0,"Tahoma",8.25,,0,0)
+Gui.FrmSOHist.lbl3.BorderStyle(0)
+Gui.FrmSOHist.txt_end_Cust.Create(TextBox,"",True,274,20,0,565,10,True,0,"Tahoma",8.25,,1)
+Gui.FrmSOHist.GsGCGrid.Create(GsGridControl)
+Gui.FrmSOHist.GsGCGrid.Enabled(True)
+Gui.FrmSOHist.GsGCGrid.Visible(True)
+Gui.FrmSOHist.GsGCGrid.Zorder(0)
+Gui.FrmSOHist.GsGCGrid.Size(1022,589)
+Gui.FrmSOHist.GsGCGrid.Position(1,92)
+Gui.FrmSOHist.GsGCGrid.Anchor(15)
+Gui.FrmSOHist.GsGCGrid.Event(RowCellClick,GsGCGrid_RowCellClick)
+Gui.FrmSOHist.cmd_Beg_Customer.Create(Button)
+Gui.FrmSOHist.cmd_Beg_Customer.Enabled(True)
+Gui.FrmSOHist.cmd_Beg_Customer.Visible(True)
+Gui.FrmSOHist.cmd_Beg_Customer.Zorder(0)
+Gui.FrmSOHist.cmd_Beg_Customer.Size(28,19)
+Gui.FrmSOHist.cmd_Beg_Customer.Position(387,11)
+Gui.FrmSOHist.cmd_Beg_Customer.Caption("^")
+Gui.FrmSOHist.cmd_Beg_Customer.FontName("Tahoma")
+Gui.FrmSOHist.cmd_Beg_Customer.FontSize(8.25)
+Gui.FrmSOHist.cmd_Beg_Customer.Event(Click,cmd_Beg_Customer_Click)
+Gui.FrmSOHist.cmd_End_Customer.Create(Button)
+Gui.FrmSOHist.cmd_End_Customer.Enabled(True)
+Gui.FrmSOHist.cmd_End_Customer.Visible(True)
+Gui.FrmSOHist.cmd_End_Customer.Zorder(0)
+Gui.FrmSOHist.cmd_End_Customer.Size(28,19)
+Gui.FrmSOHist.cmd_End_Customer.Position(846,11)
+Gui.FrmSOHist.cmd_End_Customer.Caption("^")
+Gui.FrmSOHist.cmd_End_Customer.FontName("Tahoma")
+Gui.FrmSOHist.cmd_End_Customer.FontSize(8.25)
+Gui.FrmSOHist.cmd_End_Customer.Event(Click,cmd_End_Customer_Click)
+Gui.FrmSOHist.chk_All_Customers.Create(CheckBox)
+Gui.FrmSOHist.chk_All_Customers.Enabled(True)
+Gui.FrmSOHist.chk_All_Customers.Visible(True)
+Gui.FrmSOHist.chk_All_Customers.Zorder(0)
+Gui.FrmSOHist.chk_All_Customers.Size(105,20)
+Gui.FrmSOHist.chk_All_Customers.Position(15,68)
+Gui.FrmSOHist.chk_All_Customers.Caption("All Customers")
+Gui.FrmSOHist.chk_All_Customers.FontName("Tahoma")
+Gui.FrmSOHist.chk_All_Customers.FontSize(8.25)
+Gui.FrmSOHist.chk_All_Customers.Event(Change,chk_All_Customers_Change)
+Gui.FrmSOHist.dtp_Beg_Date.Create(DatePicker)
+Gui.FrmSOHist.dtp_Beg_Date.Enabled(True)
+Gui.FrmSOHist.dtp_Beg_Date.Visible(True)
+Gui.FrmSOHist.dtp_Beg_Date.Zorder(0)
+Gui.FrmSOHist.dtp_Beg_Date.Size(287,20)
+Gui.FrmSOHist.dtp_Beg_Date.Position(93,39)
+Gui.FrmSOHist.dtp_Beg_Date.CheckBox(False)
+Gui.FrmSOHist.dtp_Beg_Date.FontName("Tahoma")
+Gui.FrmSOHist.dtp_Beg_Date.FontSize(8.25)
+Gui.FrmSOHist.lbl5.Create(Label,"Beginning Date",True,72,13,0,16,43,True,0,"Tahoma",8.25,,0,0)
+Gui.FrmSOHist.lbl5.BorderStyle(0)
+Gui.FrmSOHist.dtp_End_Date.Create(DatePicker)
+Gui.FrmSOHist.dtp_End_Date.Enabled(True)
+Gui.FrmSOHist.dtp_End_Date.Visible(True)
+Gui.FrmSOHist.dtp_End_Date.Zorder(0)
+Gui.FrmSOHist.dtp_End_Date.Size(297,20)
+Gui.FrmSOHist.dtp_End_Date.Position(478,39)
+Gui.FrmSOHist.dtp_End_Date.CheckBox(False)
+Gui.FrmSOHist.dtp_End_Date.FontName("Tahoma")
+Gui.FrmSOHist.dtp_End_Date.FontSize(8.25)
+Gui.FrmSOHist.lbl6.Create(Label,"Ending Date",True,58,13,0,407,43,True,0,"Tahoma",8.25,,0,0)
+Gui.FrmSOHist.lbl6.BorderStyle(0)
+Gui.FrmSOHist.chk_Freight.Create(CheckBox)
+Gui.FrmSOHist.chk_Freight.Enabled(True)
+Gui.FrmSOHist.chk_Freight.Visible(True)
+Gui.FrmSOHist.chk_Freight.Zorder(0)
+Gui.FrmSOHist.chk_Freight.Size(136,20)
+Gui.FrmSOHist.chk_Freight.Position(161,68)
+Gui.FrmSOHist.chk_Freight.Caption("Include Freight Records")
+Gui.FrmSOHist.chk_Freight.FontName("Tahoma")
+Gui.FrmSOHist.chk_Freight.FontSize(8.25)
+Gui.FrmSOHist.lookup_Customer.Create(Lookup)
+Gui.FrmSOHist.lookup_Customer.Enabled(True)
+Gui.FrmSOHist.lookup_Customer.PopulateMode(4)
+Gui.FrmSOHist.lookup_Customer.Title("GSS Lookup")
+Gui.FrmSOHist.lookup_Customer.StringBasis("")
+Gui.FrmSOHist.lookup_Customer.FileBasis("")
+Gui.FrmSOHist.lookup_Customer.ColumnDelim("")
+Gui.FrmSOHist.lookup_Customer.RowDelim("")
+Gui.FrmSOHist.lookup_Customer.PreferredStyle(0)
+Gui.FrmSOHist.lookup_Customer.LookupMode(0)
+Gui.FrmSOHist.lookup_Customer.Event(SelectionMade,lookup_Customer_SelectionMade)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.sByPartBrowserClickedButton.Declare
+v.Global.sFileLocation.Declare
+v.Global.iCon.Declare(long)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+Function.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+v.Local.dLastYear.Declare
+v.Local.dBegofMonth.Declare
+v.Local.iRetYear.Declare
+v.Local.iRetMonth.Declare
+v.Local.iRetDay.Declare
+f.Intrinsic.Control.Try
+
+
+	F.ODBC.Connection!con.OpenCompanyConnection(999)
+	'f.Global.Object.CreateDB("GlobalDB",v.Caller.CompanyCode,v.Ambient.DBServerName,True,v.Global.iCon)
+	'F.Global.Object.Create("oInvoiceLines", "Sales.Invoicing.InvoiceLines", "GlobalDB", V.Global.iCon, True)
+	f.Intrinsic.Control.CallSub(CreateDir)
+	f.Intrinsic.Control.CallSub(LoadEmptyGrid)
+	f.Intrinsic.Control.CallSub(SetGridProperties)
+	f.Intrinsic.Date.BeginningOfMonth(v.Ambient.Date,v.Local.dBegofMonth)
+
+'	f.Intrinsic.Date.Year(v.Ambient.Date,v.Local.iRetYear)
+'	f.Intrinsic.Date.Month(v.Ambient.Date,v.Local.iRetMonth)
+'	f.Intrinsic.Date.Day(v.Ambient.Date,v.Local.iRetDay)
+'	f.Intrinsic.Math.Sub(v.Local.iRetYear,1,v.Local.iRetYear)
+'	f.Intrinsic.Date.DateSerial(v.Local.iRetYear,v.Local.iRetMonth,v.Local.iRetDay,v.Local.dLastYear)
+	gui.FrmSOHist.dtp_Beg_Date.Value(v.Local.dBegofMonth)
+	
+	gui.FrmSOHist..Show
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.LoadEmptyGrid.Start
+f.Intrinsic.Control.Try
+
+	'f.Data.DataTable.CreateFromSQL("dtEmptyGrid","con","select A.DESCRIPTION, A.CUSTOMER,A.name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.ORDER_LINE as SO_Line,A.INVOICE,A.DATE_INVOICE,B.AMT_MATERIAL,CASE WHEN A.LINE_TYPE = 'F' THEN A.COST ELSE 0.0 END AS Freight_Cost, A.COST as INVOICE_TOTAL, CASE WHEN A.LINE_TYPE = 'F' THEN A.EXTENSION ELSE 0.0 END AS Freight_Total, A.PRICE, (TAX_RATE_1+TAX_RATE_2+TAX_RATE_3+TAX_RATE_4+TAX_RATE_5+TAX_RATE_6+TAX_RATE_7+TAX_RATE_8+TAX_RATE_9+TAX_RATE_10) as Sale_Tax_Total, C.TRACKING_NO, C.SHIP_VIA, C.CARRIER_ACCT from V_ORDER_HIST_line A left join V_JOB_HEADER B on A.JOB = B.JOB and A.SUFFIX = B.SUFFIX left join V_SHIPMENT_HEADER C on A.INVOICE = C.INVOICE where DATE_INVOICE between '1900-1-1' and '1900-1-1'",true)
+	f.Data.Datatable.Create("dtEmptyGrid",true)	
+	
+	f.Data.Datatable.AddColumn("dtEmptyGrid","INVOICE","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","CUSTOMER","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","CUSTOMER_PO","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","DATE_INVOICE","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","name_Cust_Ship","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","ZIP_Ship","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","Sale_Tax_Total","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","MATERIAL_Total","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","Freight_Total","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","Freight_Cost","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","STATE","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","SO","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","INVOICETOTAL","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","SHIP_VIA","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","TRACKING_NO","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","CARRIER_ACCT","Float")
+	
+	gui.FrmSOHist.GsGCGrid.AddGridviewFromDatatable("gvInvoice","dtEmptyGrid")
+	gui.FrmSOHist.GsGCGrid.MainView("gvInvoice")
+	f.Data.DataTable.Close("dtEmptyGrid")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.LoadEmptyGrid.End
+
+Program.Sub.LoadGrid.Start
+v.Local.dBegDate.Declare
+v.Local.dEndDate.Declare
+v.Local.sSQL.Declare
+v.Local.iRet.Declare
+v.Local.iBegYear.Declare
+v.Local.iEndYear.Declare
+v.Local.iC.Declare
+v.Local.fTaxRate.Declare
+v.Local.sCustomerNameFilter.Declare
+f.Intrinsic.Control.Try
+
+	gui.FrmSOHist.GsGCGrid.InvokeWait("Loading Grid...","SO History Modification [6932]")
+	
+	v.Local.dBegDate.Set(v.Screen.FrmSOHist!dtp_Beg_Date.Value)
+	v.Local.dEndDate.Set(v.Screen.FrmSOHist!dtp_End_Date.Value)
+	
+	f.Intrinsic.Date.DateDiff("d",v.Local.dBegDate,v.Local.dEndDate,v.Local.iRet)
+'	f.Intrinsic.Date.Year(v.Local.dBegDate,v.Local.iBegYear)
+'	f.Intrinsic.Date.Year(v.Local.dEndDate,v.Local.iEndYear)
+'	f.Intrinsic.Math.Sub(v.Local.iEndYear,v.Local.iBegYear,v.Local.iRet)
+	
+	f.Intrinsic.Control.If(v.Local.iRet,>,31)
+		f.Intrinsic.UI.Msgbox("Please enter a date range of 31 days or less","SO History Modification [6932]",0,v.Local.iRet)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.If(v.Screen.FrmSOHist!chk_All_Customers.Value,=,1)
+	
+		f.Intrinsic.Control.If(v.Screen.FrmSOHist!chk_Freight.Value,=,1)						
+			'f.Intrinsic.String.Build("select DISTINCT A.DESCRIPTION, A.CUSTOMER,A.name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.ORDER_LINE as SO_Line,A.INVOICE,A.DATE_INVOICE,E.MATL as AMT_MATERIAL, CASE WHEN A.LINE_TYPE = 'F' THEN A.COST ELSE 0.0 END AS Freight_Cost, A.COST as INVOICE_TOTAL,A.PRICE, D.TRACKING_NO, D.SHIP_VIA, D.CARRIER_ACCT from V_ORDER_HIST_line A left join V_JOB_HEADER B on A.JOB = B.JOB and A.SUFFIX = B.SUFFIX left join V_SHIPMENT_LINES C on A.ORDER_NO = C.ORDER_NO and A.ORDER_LINE = C.ORDER_REC  left join V_ORDER_HIST_HEAD D on A.INVOICE = D.INVOICE and A.ORDER_NO = D.ORDER_NO and A.ORDER_SUFFIX = D.ORDER_SUFFIX left join V_OE_SYS_COST_ELEM E on A.INVOICE = E.INVOICE and A.ORDER_NO = E.ORDER_NO and A.ORDER_LINE = E.LINE where A.DATE_INVOICE between '{0}' and '{1}' group by A.customer",v.Local.dBegDate.PervasiveDate,v.Local.dEndDate.PervasiveDate,v.Local.sSQL)
+			
+			
+			f.Intrinsic.String.Build("select DISTINCT A.DESCRIPTION, A.CUSTOMER,RTRIM(A.name_Cust_Ship) as Name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.INVOICE,A.DATE_INVOICE,CASE WHEN A.LINE_TYPE = 'F' THEN A.COST ELSE 0.0 END AS FreightCost, (A.PRICE * A.QTY_ORDERED) as PRICE, D.TRACKING_NO, D.SHIP_VIA, D.CARRIER_ACCT from V_ORDER_HIST_line A left join V_JOB_HEADER B on A.JOB = B.JOB and A.SUFFIX = B.SUFFIX left join V_ORDER_HIST_HEAD D on A.INVOICE = D.INVOICE and A.ORDER_NO = D.ORDER_NO and A.ORDER_SUFFIX = D.ORDER_SUFFIX where A.DATE_INVOICE between '{0}' and '{1}' group by A.customer",v.Local.dBegDate.PervasiveDate,v.Local.dEndDate.PervasiveDate,v.Local.sSQL)
+			
+			
+			
+			'f.Global.Object.LoadDataTable("dtInvoiceLines","oInvoiceLines","Sales.Invoicing.InvoiceLines","GlobalDB",v.Global.iCon,360,True,,-1,"","~~~~~~",true)
+			
+			
+		f.Intrinsic.Control.Else
+			'f.Intrinsic.String.Build("select DISTINCT A.DESCRIPTION, A.CUSTOMER,A.name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.ORDER_LINE as SO_Line,A.INVOICE,A.DATE_INVOICE,E.MATL as AMT_MATERIAL, CASE WHEN A.LINE_TYPE = 'F' THEN A.COST ELSE 0.0 END AS Freight_Cost, A.COST as INVOICE_TOTAL,A.PRICE, D.TRACKING_NO, D.SHIP_VIA, D.CARRIER_ACCT from V_ORDER_HIST_line A left join V_JOB_HEADER B on A.JOB = B.JOB and A.SUFFIX = B.SUFFIX left join V_SHIPMENT_LINES C on A.INVOICE = C.INVOICE and A.ORDER_NO = C.ORDER_NO and A.ORDER_LINE = C.ORDER_REC left join V_ORDER_HIST_HEAD D on A.INVOICE = D.INVOICE and A.ORDER_NO = D.ORDER_NO and A.ORDER_SUFFIX = D.ORDER_SUFFIX left join V_OE_SYS_COST_ELEM E on A.INVOICE = E.INVOICE and A.ORDER_NO = E.ORDER_NO and A.ORDER_LINE = E.LINE where A.DATE_INVOICE between '{0}' and '{1}' and A.LINE_TYPE <> 'F' group by A.customer",v.Local.dBegDate.PervasiveDate,v.Local.dEndDate.PervasiveDate,v.Local.sSQL)
+			
+			f.Intrinsic.String.Build("select DISTINCT A.DESCRIPTION, A.CUSTOMER,RTRIM(A.name_Cust_Ship) as Name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.INVOICE,A.DATE_INVOICE,CASE WHEN A.LINE_TYPE = 'F' THEN A.COST ELSE 0.0 END AS FreightCost, (A.PRICE * A.QTY_ORDERED) as PRICE, D.TRACKING_NO, D.SHIP_VIA, D.CARRIER_ACCT from V_ORDER_HIST_line A left join V_JOB_HEADER B on A.JOB = B.JOB and A.SUFFIX = B.SUFFIX left join V_ORDER_HIST_HEAD D on A.INVOICE = D.INVOICE and A.ORDER_NO = D.ORDER_NO and A.ORDER_SUFFIX = D.ORDER_SUFFIX where A.DATE_INVOICE between '{0}' and '{1}' and A.LINE_TYPE <> 'F' group by A.customer",v.Local.dBegDate.PervasiveDate,v.Local.dEndDate.PervasiveDate,v.Local.sSQL)
+		f.Intrinsic.Control.EndIf
+			
+		
+				
+	f.Intrinsic.Control.Else
+		f.Intrinsic.Control.If(v.Screen.FrmSOHist!txt_Beg_Cust.Text,=,"","AND",v.Screen.FrmSOHist!txt_end_Cust.Text,=,"")
+			f.Intrinsic.UI.Msgbox("Please enter a beginning and ending part","SO History Modification [6932]",0,v.Local.iRet)
+			f.Intrinsic.Control.ExitSub
+		f.Intrinsic.Control.Else
+		
+			f.Intrinsic.Control.If(v.Screen.FrmSOHist!chk_Freight.Value,=,1)
+				'f.Intrinsic.String.Build("select A.DESCRIPTION, A.CUSTOMER,A.name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.ORDER_LINE as SO_Line,A.INVOICE,A.DATE_INVOICE,E.MATL as AMT_MATERIAL, CASE WHEN A.LINE_TYPE = 'F' THEN A.COST ELSE 0.0 END AS Freight_Cost, A.COST as INVOICE_TOTAL,A.PRICE, D.TRACKING_NO, D.SHIP_VIA, D.CARRIER_ACCT from V_ORDER_HIST_line A left join V_JOB_HEADER B on A.JOB = B.JOB and A.SUFFIX = B.SUFFIX left join V_SHIPMENT_LINES C on A.INVOICE = C.INVOICE and A.ORDER_NO = C.ORDER_NO and A.ORDER_LINE = C.ORDER_REC left join V_ORDER_HIST_HEAD D on A.INVOICE = D.INVOICE and A.ORDER_NO = D.ORDER_NO and A.ORDER_SUFFIX = D.ORDER_SUFFIX left join V_OE_SYS_COST_ELEM E on A.INVOICE = E.INVOICE and A.ORDER_NO = E.ORDER_NO and A.ORDER_LINE = E.LINE where A.CUSTOMER between '{0}' and '{1}' and A.DATE_INVOICE between '{2}' and '{3}'",v.Screen.FrmSOHist!txt_Beg_Cust.Text,v.Screen.FrmSOHist!txt_end_Cust.Text,v.Local.dBegDate.PervasiveDate,v.Local.dEndDate.PervasiveDate,v.Local.sSQL)
+				
+				f.Intrinsic.String.Build("select A.DESCRIPTION, A.CUSTOMER,RTRIM(A.name_Cust_Ship) as Name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.INVOICE,A.DATE_INVOICE,CASE WHEN A.LINE_TYPE = 'F' THEN A.COST ELSE 0.0 END AS FreightCost, (A.PRICE * A.QTY_ORDERED) as PRICE, D.TRACKING_NO, D.SHIP_VIA, D.CARRIER_ACCT from V_ORDER_HIST_line A left join V_ORDER_HIST_HEAD D on A.INVOICE = D.INVOICE and A.ORDER_NO = D.ORDER_NO and A.ORDER_SUFFIX = D.ORDER_SUFFIX where A.CUSTOMER between '{0}' and '{1}' and A.DATE_INVOICE between '{2}' and '{3}'",v.Screen.FrmSOHist!txt_Beg_Cust.Text,v.Screen.FrmSOHist!txt_end_Cust.Text,v.Local.dBegDate.PervasiveDate,v.Local.dEndDate.PervasiveDate,v.Local.sSQL)
+				
+			f.Intrinsic.Control.Else
+				'f.Intrinsic.String.Build("select A.PART, A.CUSTOMER,A.name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.INVOICE,A.DATE_INVOICE,B.AMT_MATERIAL, CASE WHEN A.LINE_TYPE = 'F' THEN A.EXTENSION ELSE 0.0 END AS Freight_Total, A.COST as INVOICE_TOTAL, (TAX_RATE_1+TAX_RATE_2+TAX_RATE_3+TAX_RATE_4+TAX_RATE_5+TAX_RATE_6+TAX_RATE_7+TAX_RATE_8+TAX_RATE_9+TAX_RATE_10) as Sale_Tax_Total, C.TRACKING_NO, C.SHIP_VIA, C.CARRIER_ACCT from V_ORDER_HIST_line A left join V_JOB_HEADER B on A.JOB = B.JOB and A.SUFFIX = B.SUFFIX left join V_SHIPMENT_HEADER C on A.INVOICE = C.INVOICE where A.CUSTOMER between '{0}' and '{1}' and A.DATE_INVOICE between '{2}' and '{3}' and LINE_TYPE <> 'F'",v.Screen.FrmSOHist!txt_Beg_Cust.Text,v.Screen.FrmSOHist!txt_end_Cust.Text,v.Local.dBegDate.PervasiveDate,v.Local.dEndDate.PervasiveDate,v.Local.sSQL)
+				
+				'f.Intrinsic.String.Build("select A.DESCRIPTION, A.CUSTOMER,RTRIM(A.name_Cust_Ship) as Name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.INVOICE,A.DATE_INVOICE,A.PRICE,CASE WHEN A.LINE_TYPE = 'F' THEN A.COST ELSE 0.0 END AS FreightCost, A.QTY_ORDERED from V_ORDER_HIST_line A where A.CUSTOMER between '{0}' and '{1}' and A.DATE_INVOICE between '{2}' and '{3}' and A.LINE_TYPE <> 'F'",v.Screen.FrmSOHist!txt_Beg_Cust.Text,v.Screen.FrmSOHist!txt_end_Cust.Text,v.Local.dBegDate.PervasiveDate,v.Local.dEndDate.PervasiveDate,v.Local.sSQL)
+				
+				f.Intrinsic.String.Build("select A.DESCRIPTION, A.CUSTOMER,RTRIM(A.name_Cust_Ship) as Name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.INVOICE,A.DATE_INVOICE,CASE WHEN A.LINE_TYPE = 'F' THEN A.COST ELSE 0.0 END AS FreightCost, (A.PRICE * A.QTY_ORDERED) as PRICE,D.TRACKING_NO, D.SHIP_VIA, D.CARRIER_ACCT from V_ORDER_HIST_line A left join V_ORDER_HIST_HEAD D on A.INVOICE = D.INVOICE and A.ORDER_NO = D.ORDER_NO and A.ORDER_SUFFIX = D.ORDER_SUFFIX where A.CUSTOMER between '{0}' and '{1}' and A.DATE_INVOICE between '{2}' and '{3}' and A.LINE_TYPE <> 'F'",v.Screen.FrmSOHist!txt_Beg_Cust.Text,v.Screen.FrmSOHist!txt_end_Cust.Text,v.Local.dBegDate.PervasiveDate,v.Local.dEndDate.PervasiveDate,v.Local.sSQL)
+			f.Intrinsic.Control.EndIf
+			
+			'f.Intrinsic.String.Build("select A.PART, A.CUSTOMER,A.name_Cust_Ship,A.STATE_Ship as State,A.ZIP_Ship,A.CUSTOMER_PO,A.ORDER_NO as SO,A.INVOICE,A.DATE_INVOICE,B.AMT_MATERIAL, CASE WHEN A.LINE_TYPE = 'F' THEN A.EXTENSION ELSE 0.0 END AS Freight_Total, A.COST as INVOICE_TOTAL, (TAX_RATE_1+TAX_RATE_2+TAX_RATE_3+TAX_RATE_4+TAX_RATE_5+TAX_RATE_6+TAX_RATE_7+TAX_RATE_8+TAX_RATE_9+TAX_RATE_10) as Sale_Tax_Total from V_ORDER_HIST_line A left join V_JOB_HEADER B on A.JOB = B.JOB and A.SUFFIX = B.SUFFIX where A.PART between '{0}' and '{1}' and A.DATE_INVOICE between '{2}' and '{3}'",v.Screen.FrmSOHist!txt_Beg_Cust.Text,v.Screen.FrmSOHist!txt_end_Cust.Text,v.Local.dBegDate.PervasiveDate,v.Local.dEndDate.PervasiveDate,v.Local.sSQL)
+			
+			
+				
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.EndIf
+	
+	'f.Data.DataTable.CreateFromSQL("dtTaxRates","con","Select DISTINCT A.NAME_CUST_SHIP, B.CUSTOMER_NAME,B.SHIP_TAX_1,B.SHIP_TAX_2,B.SHIP_TAX_3, C.RATE from V_ORDER_HIST_LINE A left join V_OE_MULTI_SHIP B on A.NAME_CUST_SHIP = B.CUSTOMER_NAME left join V_AR_TAX_TABLES C on B.SHIP_TAX_1 = C.AUTH or B.SHIP_TAX_2 = C.AUTH",true)
+	
+	'f.Data.DataTable.CreateFromSQL("dtTaxRates","con","Select DISTINCT B.CUSTOMER_NAME,B.SHIP_TAX_1,B.SHIP_TAX_2,B.SHIP_TAX_3, C.RATE from V_OE_MULTI_SHIP B left join V_AR_TAX_TABLES C on B.SHIP_TAX_1 = C.AUTH",true)
+	
+
+	'f.Data.DataTable.CreateFromSQL("dtOrderHistLine","con","Select DISTINCT RTRIM(NAME_CUST_SHIP) as NAME_CUST_SHIP from V_ORDER_HIST_LINE",true)
+'	
+	f.Data.DataTable.CreateFromSQL("dtMultiShip","con","Select RTRIM(CUSTOMER_NAME) as CUSTOMER_NAME,RTRIM(SHIP_TAX_1) as SHIP_TAX_1,SHIP_TAX_2,SHIP_TAX_3 from V_OE_MULTI_SHIP where RTRIM(CUSTOMER_NAME) in (Select DISTINCT RTRIM(NAME_CUST_SHIP) as NAME_CUST_SHIP from V_ORDER_HIST_LINE)",true)
+	f.Data.Datatable.AddColumn("dtMultiShip","RATE_1","Float")
+	f.Data.Datatable.AddColumn("dtMultiShip","RATE_2","Float")
+	f.Data.Datatable.AddColumn("dtMultiShip","RATE_3","Float")
+	
+'	
+	'f.Data.DataTable.CreateFromSQL("dtTaxTable","con","Select C.RATE, RTRIM(C.AUTH) as AUTH from  V_AR_TAX_TABLES C",true)
+	
+	f.Data.Dictionary.CreateFromSQL("dcTaxTable","con","Select RTRIM(AUTH) as AUTH, RATE from V_AR_TAX_TABLES")
+	f.Data.Dictionary.SetDefaultReturn("dcTaxTable","0.00")
+	f.Data.Datatable.FillFromDictionary("dtMultiShip","dcTaxTable","SHIP_TAX_1","RATE_1")
+	f.Data.Datatable.FillFromDictionary("dtMultiShip","dcTaxTable","SHIP_TAX_2","RATE_2")
+	f.Data.Datatable.FillFromDictionary("dtMultiShip","dcTaxTable","SHIP_TAX_3","RATE_3")
+'	
+	'F.Data.Linq.Join("leftjoin","datatable","dtMultiShip*!*A","datatable","dtTaxTable*!*B","A.SHIP_TAX_1 = B.AUTH","A.CUSTOMER_NAME*!*A.SHIP_TAX_1*!*A.SHIP_TAX_2*!*A.SHIP_TAX_3*!*B.RATE*!*B.AUTH","","","","dtTaxRates",True)
+	
+	'F.Data.Linq.Join("leftJoin","datatable","dtMultiShip*!*A","datatable","dtTaxTable*!*B","A.SHIP_TAX_1 = B.AUTH","A.CUSTOMER_NAME*!*A.SHIP_TAX_1*!*A.SHIP_TAX_2*!*A.SHIP_TAX_3*!*B.RATE*!*B.AUTH","","","","dtTaxRates",True)
+	
+	'f.Global.Object.LoadDataTable("dtInvoiceLines","oInvoiceLines","Sales.Invoicing.InvoiceLines","GlobalDB",v.Global.iCon,360,True,,-1,"","~~~~~~",true)
+	'f.Data.Datatable.AddColumn("dtTaxRates","Sale_Tax_Total","Float")
+	
+	f.Data.Datatable.AddExpressionColumn("dtMultiShip","Sale_Tax_Total","Float","[RATE_1] + [RATE_2] + [RATE_3]")
+	
+'	f.Intrinsic.Control.For(v.Local.iC,0,v.DataTable.dtTaxRates.RowCount--,1)
+'		f.Intrinsic.String.Build("CUSTOMER_NAME = '{0}'",v.DataTable.dtTaxRates(v.Local.iC).CUSTOMER_NAME!FIELDVALTRIM,v.Local.sCustomerNameFilter)
+'		f.Data.Datatable.Compute("dtTaxRates","SUM(RATE)",v.Local.sCustomerNameFilter,v.Local.fTaxRate)
+'		f.Data.Datatable.SetValue("dtTaxRates",v.Local.iC,"Sale_Tax_Total",v.Local.fTaxRate)
+'	f.Intrinsic.Control.Next(v.Local.iC)
+	
+	'f.Data.Dictionary.CreateFromDataTable("dcTaxRates","dtTaxRates","CUSTOMER_NAME","Sale_Tax_Total")
+	
+	'f.Data.DataView.Create("dtTaxRates","dvTaxRates")
+	'f.Data.DataView.ToDataTableDistinct("dtTaxRates","dvTaxRates","dtTaxRatesDistinct","NAME_CUST_SHIP*!*Sale_Tax_Total")
+	
+	
+	f.Data.DataTable.CreateFromSQL("dtEmptyGrid","con",v.Local.sSQL,true)
+	f.Data.Datatable.AddColumn("dtEmptyGrid","Material_Total","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","Freight_Total","Float")
+	f.Data.Datatable.AddColumn("dtEmptyGrid","Freight_Cost","Float")
+	
+	f.Intrinsic.Control.For(v.Local.iC,0,v.DataTable.dtEmptyGrid.RowCount--,1)
+		f.Intrinsic.String.Build("INVOICE = '{0}' and DESCRIPTION <> 'FREIGHT CHARGES'",v.DataTable.dtEmptyGrid(v.Local.iC).INVOICE!FIELDVALTRIM,v.Local.sCustomerNameFilter)
+		f.Data.Datatable.Compute("dtEmptyGrid","SUM(Price)",v.Local.sCustomerNameFilter,v.Local.fTaxRate)
+		f.Data.Datatable.SetValue("dtEmptyGrid",v.Local.iC,"Material_Total",v.Local.fTaxRate)
+		
+		f.Intrinsic.String.Build("INVOICE = '{0}' and DESCRIPTION = 'FREIGHT CHARGES'",v.DataTable.dtEmptyGrid(v.Local.iC).INVOICE!FIELDVALTRIM,v.Local.sCustomerNameFilter)
+		f.Data.Datatable.Compute("dtEmptyGrid","SUM(Price)",v.Local.sCustomerNameFilter,v.Local.fTaxRate)
+		f.Data.Datatable.SetValue("dtEmptyGrid",v.Local.iC,"Freight_Total",v.Local.fTaxRate)
+		
+		f.Intrinsic.String.Build("INVOICE = '{0}' and DESCRIPTION = 'FREIGHT CHARGES'",v.DataTable.dtEmptyGrid(v.Local.iC).INVOICE!FIELDVALTRIM,v.Local.sCustomerNameFilter)
+		f.Data.Datatable.Compute("dtEmptyGrid","SUM(FreightCost)",v.Local.sCustomerNameFilter,v.Local.fTaxRate)
+		f.Data.Datatable.SetValue("dtEmptyGrid",v.Local.iC,"Freight_Cost",v.Local.fTaxRate)
+				
+	f.Intrinsic.Control.Next(v.Local.iC)
+	
+	'F.Data.Linq.Join("leftjoin","datatable","dtEmptyGrid*!*A","datatable","dtTaxRatesDistinct*!*B","A.NAME_CUST_SHIP = B.NAME_CUST_SHIP","A.DESCRIPTION*!*A.CUSTOMER*!*A.name_Cust_Ship*!*A.State*!*A.ZIP_Ship*!*A.CUSTOMER_PO*!*A.SO*!*A.SO_Line*!*A.INVOICE*!*A.DATE_INVOICE*!*A.AMT_MATERIAL*!*A.Freight_Total*!*A.INVOICE_TOTAL*!*A.PRICE*!*A.Freight_Cost*!*A.Material_Total*!*A.TRACKING_NO*!* A.SHIP_VIA*!*A.CARRIER_ACCT*!*B.Sale_Tax_Total","","","","dtTaxRatesIncluded",True)
+	
+	'F.Data.Linq.Join("leftjoin","datatable","dtEmptyGrid*!*A","datatable","dtTaxRatesDistinct*!*B","A.NAME_CUST_SHIP = B.NAME_CUST_SHIP","A.DESCRIPTION*!*A.CUSTOMER*!*A.name_Cust_Ship*!*A.State*!*A.ZIP_Ship*!*A.CUSTOMER_PO*!*A.SO*!*A.INVOICE*!*A.DATE_INVOICE*!*A.FREIGHT_COST*!*A.Freight_Total*!*A.Material_Total*!*B.Sale_Tax_Total","","","","dtTaxRatesIncluded",True)
+	
+	F.Data.Linq.Join("leftjoin","datatable","dtEmptyGrid*!*A","datatable","dtMultiShip*!*B","A.NAME_CUST_SHIP = B.CUSTOMER_NAME","A.DESCRIPTION*!*A.CUSTOMER*!*A.name_Cust_Ship*!*A.State*!*A.ZIP_Ship*!*A.CUSTOMER_PO*!*A.SO*!*A.INVOICE*!*A.DATE_INVOICE*!*A.FREIGHT_COST*!*A.Freight_Total*!*A.Material_Total*!*A.TRACKING_NO*!*A.SHIP_VIA*!*A.CARRIER_ACCT*!*B.Sale_Tax_Total","","","","dtTaxRatesIncluded",True)
+	
+	f.Data.Datatable.AddExpressionColumn("dtTaxRatesIncluded","INVOICETOTAL","Float","[Material_Total] + [Freight_Total]")
+	
+	f.Data.DataView.Create("dtTaxRatesIncluded","dvFinal")
+	f.Data.DataView.ToDataTableDistinct("dtTaxRatesIncluded","dvFinal","dtFinalDistinct","NAME_CUST_SHIP*!*CUSTOMER*!*STATE*!*ZIP_SHIP*!*CUSTOMER_PO*!*SO*!*INVOICE*!*DATE_INVOICE*!*MATERIAL_TOTAL*!*FREIGHT_COST*!*FREIGHT_TOTAL*!*SALE_TAX_TOTAL*!*INVOICETOTAL*!*TRACKING_NO*!*SHIP_VIA*!*CARRIER_ACCT")
+	
+	'gui.FrmSOHist.GsGCGrid.AddGridviewFromDatatable("gvInvoice","dtTaxRatesIncluded")	
+	gui.FrmSOHist.GsGCGrid.AddGridviewFromDatatable("gvInvoice","dtFinalDistinct")
+	gui.FrmSOHist.GsGCGrid.MainView("gvInvoice")
+	f.Intrinsic.Control.CallSub(SetGridProperties)
+	f.Data.DataTable.Close("dtTaxRatesIncluded")
+	'f.Data.DataTable.Close("dtTaxRates")
+	f.Data.DataTable.Close("dtEmptyGrid")
+	'f.Data.DataTable.Close("dtOrderHistLine")
+	f.Data.DataTable.Close("dtMultiShip")
+	f.Data.Dictionary.Close("dcTaxTable")
+	'f.Data.DataTable.Close("dtTaxTable")
+
+	
+	gui.FrmSOHist.GsGCGrid.HideWait
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.LoadGrid.End
+
+Program.Sub.SetGridProperties.Start
+f.Intrinsic.Control.Try
+	
+	gui.FrmSOHist.GsGCGrid.SetGridviewProperty("gvInvoice","Showgrouppanel","true")
+	gui.FrmSOHist.GsGCGrid.SetGridviewProperty("gvInvoice","AllowFilter","true")
+	gui.FrmSOHist.GsGCGrid.SetGridviewProperty("gvInvoice","AllowSort","true")
+	gui.FrmSOHist.GsGCGrid.SetGridviewProperty("gvInvoice","ShowConditionalFormattingItem","true")
+	gui.FrmSOHist.GsGCGrid.SetGridviewProperty("gvInvoice","AllowColumnMoving","true")
+	gui.FrmSOHist.GsGCGrid.SetGridviewProperty("gvInvoice","AllowColumnResizing","true")
+	gui.FrmSOHist.GsGCGrid.SetGridviewProperty("gvInvoice","OptionsFilterUseNewCustomFilterDialog","true")
+	
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","DESCRIPTION","Caption","Part Description")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","INVOICE","Caption","Invoice")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","INVOICETOTAL","Caption","Invoice Total")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CUSTOMER","Caption","Customer")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CUSTOMER_PO","Caption","Customer PO")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","DATE_INVOICE","Caption","Invoice Date")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","name_Cust_Ship","Caption","Customer Name")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","ZIP_Ship","Caption","Zip Ship")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","INVOICE_TOTAL","Caption","Invoice Total")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Sale_Tax_Total","Caption","Sales Tax % Total")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","MATERIAL_Total","Caption","Material Total")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Freight_Total","Caption","Freight Total")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Freight_Cost","Caption","Freight Cost")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","SHIP_VIA","Caption","Ship Via")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CARRIER_ACCT","Caption","Carrier Account")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","STATE","Caption","State")
+	
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","SHIP_VIA","Caption","Ship Via")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","TRACKING_NO","Caption","Tracking Number")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CARRIER_ACCT","Caption","Carrier Acct")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","SO_LINE","Caption","SO Line")
+	
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","DESCRIPTION","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","INVOICE","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CUSTOMER","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CUSTOMER_PO","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CUSTOMER_PO","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","DATE_INVOICE","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","name_Cust_Ship","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","SO","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","ZIP_Ship","MinWidth","100")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","INVOICE_TOTAL","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","State","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Sale_Tax_Total","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","MATERIAL_Total","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Freight_Total","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Freight_Cost","MinWidth","100")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CARRIER_ACCT","MinWidth","100")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","SO_LINE","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","INVOICETOTAL","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","SHIP_VIA","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","TRACKING_NO","MinWidth","100")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CARRIER_ACCT","MinWidth","100")
+	
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","DESCRIPTION","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","INVOICE","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CUSTOMER","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CUSTOMER_PO","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","DATE_INVOICE","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","name_Cust_Ship","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","SO","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","ZIP_Ship","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","INVOICETOTAL","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","State","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Sale_Tax_Total","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","MATERIAL_Total","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Freight_Total","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Freight_Cost","HeaderFontBold",True)
+	
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","SHIP_VIA","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","TRACKING_NO","HeaderFontBold",True)
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CARRIER_ACCT","HeaderFontBold",True)
+	
+	
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","TRACKING_NO","HeaderFontBold",True)
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","SHIP_VIA","HeaderFontBold",True)
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","CARRIER_ACCT","HeaderFontBold",True)
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","SO_LINE","HeaderFontBold",True)
+	
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","DESCRIPTION","Visible","false")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","AMT_MATERIAL","Visible","false")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","PRICE","Visible","false")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","FREIGHT_COST","Visible","false")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","INVOICE_TOTAL","Visible","false")
+	
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","DATE_INVOICE","DisplayCustomDatetime","d")
+	
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","INVOICETOTAL","DisplayCustomNumeric", "###,###0.00")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Sale_Tax_Total","DisplayCustomNumeric", "###,###0.000")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Freight_Total","DisplayCustomNumeric", "###,###0.00")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","Freight_Cost","DisplayCustomNumeric", "###,###0.00")
+	gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","MATERIAL_Total","DisplayCustomNumeric", "###,###0.00")
+	'gui.FrmSOHist.GsGCGrid.SetColumnProperty("gvInvoice","AMT_MATERIAL","DisplayCustomNumeric", "###,###0.00")
+	
+	
+	f.Intrinsic.Control.CallSub(Deserialize)
+
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.SetGridProperties.End
+
+Program.Sub.ErrorMsg.Start
+v.Local.sError.Declare
+f.Intrinsic.String.Build("Project GCG_6932_SOHIST.g2u {0}{0}Subroutine: {1}{0}Error: {2} with Description: {3}", v.Ambient.NewLine, v.Args.CurrentSub, v.Ambient.ErrorNumber, v.Ambient.ErrorDescription, v.Local.sError)
+f.Intrinsic.UI.Msgbox(v.Local.sError)
+f.ODBC.Connection!con.Close
+f.Intrinsic.Control.End
+Program.Sub.ErrorMsg.End
+
+Program.Sub.Form_UnLoad.Start
+f.Intrinsic.Control.CallSub(serialize)
+f.ODBC.Connection!con.Close
+f.Intrinsic.Control.End
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.FrmSOHist_ExportClick.Start
+f.Intrinsic.Control.Try
+
+	F.Intrinsic.String.Build("{0}\Custom\6932\{1}",V.Caller.GlobalDir,"GCG_6932_SOHIST.csv",V.Global.sFileLocation)
+	gui.FrmSOHist.GsGCGrid.Export(v.Global.sFileLocation,"csv")
+	
+	F.Intrinsic.Task.ShellExec(V.Caller.Handle,"",v.Global.sFileLocation,"","",1)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+
+Program.Sub.FrmSOHist_ExportClick.End
+
+Program.Sub.FrmSOHist_RefreshClick.Start
+f.Intrinsic.Control.CallSub(LoadGrid)
+Program.Sub.FrmSOHist_RefreshClick.End
+
+Program.Sub.CreateDir.Start
+V.Local.bRet.Declare(Boolean,False)
+f.Intrinsic.Control.Try
+	
+	'Creating custom directory in Global file path if its not there
+	F.Intrinsic.Control.If(V.Caller.GlobalDir.Right1,=,"\")
+		F.Intrinsic.String.Build("{0}Custom\",V.Caller.GlobalDir,V.Global.sFileLocation)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("{0}\Custom\",V.Caller.GlobalDir,V.Global.sFileLocation)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.File.DirExists(V.Global.sFileLocation,V.Local.bRet)
+	
+	F.Intrinsic.Control.If(V.Local.bRet,=,False)
+		F.Intrinsic.File.CreateDir(V.Global.sFileLocation)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Build("{0}6932\",V.Global.sFileLocation,V.Global.sFileLocation)
+	
+	F.Intrinsic.File.DirExists(V.Global.sFileLocation,V.Local.bRet)
+	
+	F.Intrinsic.Control.If(V.Local.bRet,=,False)
+		F.Intrinsic.File.CreateDir(V.Global.sFileLocation)
+	F.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.CreateDir.End
+
+Program.Sub.Serialize.Start
+f.Intrinsic.Control.Try
+
+	V.Local.sSerialize.Declare 
+
+	gui.FrmSOHist.GsGCGrid.Serialize("gvInvoice",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvInvoice",6932,1001,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.Deserialize.Start
+f.Intrinsic.Control.Try
+
+	V.Local.sSerialize.Declare
+	
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvInvoice",6932,1001,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.trim,<>,"")
+		gui.FrmSOHist.GsGCGrid.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+		
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.Deserialize.End
+
+Program.Sub.cmd_Beg_Customer_Click.Start
+f.Intrinsic.Control.Try
+
+	v.Global.sByPartBrowserClickedButton.Set("Start")
+	'gui.FrmSOHist.lookup_Customer.Show()
+	
+	f.Data.DataTable.CreateFromSQL("dtBegCustomer","con","Select CUSTOMER as Customer, NAME_CUSTOMER as Customer_Name from V_CUSTOMER_MASTER order by Customer",true)
+	gui.FrmSOHist.lookup_Customer.DataTableBasis("dtBegCustomer")
+	gui.FrmSOHist.lookup_Customer.Show()
+	f.Data.DataTable.Close("dtBegCustomer")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmd_Beg_Customer_Click.End
+
+Program.Sub.cmd_End_Customer_Click.Start
+f.Intrinsic.Control.Try
+
+	v.Global.sByPartBrowserClickedButton.Set("End")
+	'gui.FrmSOHist.lookup_Customer.Show
+	
+	f.Data.DataTable.CreateFromSQL("dtEndCustomer","con","Select CUSTOMER as Customer, NAME_CUSTOMER as Customer_Name from V_CUSTOMER_MASTER order by Customer",true)
+	gui.FrmSOHist.lookup_Customer.DataTableBasis("dtEndCustomer")
+	gui.FrmSOHist.lookup_Customer.Show()
+	f.Data.DataTable.Close("dtEndCustomer")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmd_End_Customer_Click.End
+
+Program.Sub.chk_All_Customers_Change.Start
+f.Intrinsic.Control.Try
+
+	f.Intrinsic.Control.If(v.Screen.FrmSOHist!chk_All_Customers.Value,=,1)
+		gui.FrmSOHist.txt_Beg_Cust.Locked(true)
+		gui.FrmSOHist.txt_end_Cust.Locked(true)	
+		gui.FrmSOHist.cmd_Beg_Customer.Locked(true)
+		gui.FrmSOHist.cmd_End_Customer.Locked(true)
+	f.Intrinsic.Control.Else
+		gui.FrmSOHist.txt_Beg_Cust.Locked(false)
+		gui.FrmSOHist.txt_end_Cust.Locked(false)
+		gui.FrmSOHist.cmd_Beg_Customer.Locked(false)
+		gui.FrmSOHist.cmd_End_Customer.Locked(false)
+	f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.chk_All_Customers_Change.End
+
+Program.Sub.lookup_Customer_SelectionMade.Start
+f.Intrinsic.Control.Try
+
+f.Intrinsic.Control.If(v.Global.sByPartBrowserClickedButton,=,"Start")
+		'gui.FrmSOHist.txt_Beg_Cust.Text(v.Object.lookup_Customer_Result(0).Customer!FieldValTrim)
+		gui.FrmSOHist.txt_Beg_Cust.Text(v.DataTable.lookup_Customer_Result(0).Customer!FieldValTrim)
+		'gui.FrmSOHist.txt_Beg_Loc.Text(v.Object.lookup_Part_Result(0).LocationCode!FieldValTrim)
+		
+	f.Intrinsic.Control.Else
+		gui.FrmSOHist.txt_end_Cust.Text(v.DataTable.lookup_Customer_Result(0).Customer!FieldValTrim)	
+		'gui.FrmSOHist.txt_End_Location.Text(v.Object.lookup_Part_Result(0).LocationCode!FieldValTrim)
+		
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.lookup_Customer_SelectionMade.End
+
+Program.Sub.GsGCGrid_RowCellClick.Start
+v.Local.sParam.Declare
+v.Local.sLoc.Declare
+V.Local.sWO.Declare
+V.Local.sWO1.Declare
+Variable.Local.sPO.Declare
+f.Intrinsic.Control.Try
+
+
+'	F.Intrinsic.Control.SelectCase(v.Args.Column)
+''		F.Intrinsic.Control.Case("JOB")
+''			'gui.frmWIP.GsGrid.GetCellValueByColumnName("GridView","Job",v.Args.RowIndex,V.Local.sWO)
+''			gui.frmInventoryReportingDashboard.GsGcWIP.GetCellValueByColumnName("gvWIP","Job",v.Args.RowIndex,V.Local.sWO)
+''			'gui.frmWIP.GsGrid.GetCellValueByColumnName("GridView","Suffix",v.Args.RowIndex,V.Local.sWO1)
+''			gui.frmInventoryReportingDashboard.GsGcWIP.GetCellValueByColumnName("gvWIP","Suffix",v.Args.RowIndex,V.Local.sWO1)
+''			F.Intrinsic.String.ConcatCallWrapperArgs(7,V.Local.sWO.Trim,V.Local.sWO1.Trim,"A",V.Local.sParam)
+''			F.Global.General.CallWrapperSync(450000,V.Local.sParam)
+'		F.Intrinsic.Control.Case("CUSTOMER_PO")
+'			gui.FrmSOHist.GsGCGrid.GetCellValueByColumnName("gvInvoice","CUSTOMER_PO",v.Args.RowIndex,V.Local.sPO)
+'			Function.Intrinsic.String.Concat("O!*!",Variable.Local.sPO,"!*!",Variable.Local.sParam)
+'			Function.Global.General.CallWrapperASync(175200,Variable.Local.sParam)
+'		'F.Intrinsic.Control.Case("PART")
+'			'gui.frmWIP.GsGrid.GetCellValueByColumnName("GridView","Part",v.Args.RowIndex,v.Local.sParam)
+'			'gui.FrmSOHist.GsGCGrid.GetCellValueByColumnName("gvInvoice","Part",v.Args.RowIndex,V.Local.sParam)
+'			'f.Intrinsic.string.Build("O!*!{0}!*!",v.Local.sParam,v.Local.sLoc,v.Local.sParam)
+'			'Function.Global.General.CallWrapperASync(300000,v.Local.sParam)
+'	F.Intrinsic.Control.EndSelect
+		
+f.Intrinsic.Control.Catch
+	f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGCGrid_RowCellClick.End
+
+Program.Sub.Comments.Start
+${$5$}$20.1.8256.24238$}$1
+${$6$}$Globalshop$}$20221128172327729$}$XbGA5Jlbk/pa9e8jvNC+5gB1AWnpDTHqi6JZpvXQRTog4fNCM6nHMzBQ81uEd2nv5d6YichCZmk4cG0uturfUA==
+Program.Sub.Comments.End
